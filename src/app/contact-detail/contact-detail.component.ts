@@ -11,8 +11,6 @@ import { DividerModule } from 'primeng/divider';
 
 export class ContactDetailComponent {
 
-    
-
     @Input()
     set contactId(id: string) {
         console.log('c', id);

@@ -7,7 +7,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "sass"
+          "style": "scss"
         }
       },
       "root": "",
@@ -72,7 +72,8 @@
               "buildTarget": "contact-app:build:production"
             },
             "development": {
-              "buildTarget": "contact-app:build:development"
+              "buildTarget": "contact-app:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

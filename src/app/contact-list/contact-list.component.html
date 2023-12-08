@@ -1,14 +1,6 @@
 <div class="contact-list-container">
     <div class="contact-grid">
-        <wt-contact-box></wt-contact-box>
-        <wt-contact-box></wt-contact-box>
-        <wt-contact-box></wt-contact-box>
-        <wt-contact-box></wt-contact-box>
-        <wt-contact-box></wt-contact-box>
-        <wt-contact-box></wt-contact-box>
-        <wt-contact-box></wt-contact-box>
-        <wt-contact-box></wt-contact-box>
-        <wt-contact-box></wt-contact-box>
+        <wt-contact-box *ngFor="let contact of contacts" [contact]="contact"></wt-contact-box>
     </div>
     <div class="contact-list-load">
         <p-button label="Load More"></p-button>

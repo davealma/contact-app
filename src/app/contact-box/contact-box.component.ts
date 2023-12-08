@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
+import { Contact } from "../../models/models";
 
 @Component({
     selector: "wt-contact-box",
@@ -7,4 +8,6 @@ import { Component } from "@angular/core";
     styleUrl:'./contact-box.component.scss'
 })
 
-export class ContactBox {}
+export class ContactBox {
+    @Input() contact:Contact = {} as Contact;
+}
