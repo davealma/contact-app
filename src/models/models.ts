@@ -3,9 +3,11 @@ export type Contact = {
     firstName: string;
     lastName: string;
     image: string;
-    bio?: string;
-    phone?: string;
+    bio: string;
+    telephone: string;
 }
+
+export type ContactFormData = Omit<Contact, 'id'>;
 
 export type ContactResponse = {
     data: Contact[]

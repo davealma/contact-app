@@ -10,7 +10,7 @@ import { ContactListComponent } from "../contact-list/contact-list.component";
     standalone: true,
     template: `
         <wt-search-bar></wt-search-bar>
-        <a routerLink="/contact/new"><p-button icon="pi pi-plus" icon-pos="right" label="Add User"></p-button></a>
+        <a routerLink="/contact"><p-button icon="pi pi-plus" icon-pos="right" label="Add User"></p-button></a>
         <wt-contact-list></wt-contact-list>    
     `
 })

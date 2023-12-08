@@ -1,5 +1,26 @@
 <div>
-    <form>
+    <form (ngSubmit)="create()">
         <h2>User Form</h2>
+
+        <!-- <p-panel> -->
+            <div>
+                <label for="firstname">First Name</label>
+                <input id="firstName" name="firstName" [(ngModel)]="contact.firstName" pInputText />
+            </div>
+            <div>
+                <label for="lastname">Last Name</label>
+                <input id="lastName" name="lastName" [(ngModel)]="contact.lastName" pInputText />
+            </div>
+            <div>
+                <label for="telephone">Phone</label>
+                <input id="telephone" name="telephone" [(ngModel)]="contact.telephone" pInputText />
+            </div>
+            <div>
+                <label for="bio">Bio</label>
+                <textarea id="bio" name="bio" rows="5" cols="30" pInputTextarea [(ngModel)]="contact.bio"></textarea>
+            </div>
+        <!-- </p-panel> -->
+
+        <p-button type="submit" label="Save"></p-button>
     </form>
 </div>
