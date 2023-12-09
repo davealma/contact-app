@@ -11,6 +11,6 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes, withComponentInputBinding()),
     provideClientHydration(),
-    importProvidersFrom(HttpClientModule)
+    importProvidersFrom(HttpClientModule, BrowserAnimationsModule)
   ]
 };

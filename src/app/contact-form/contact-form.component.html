@@ -2,7 +2,7 @@
     <form (ngSubmit)="submit()">
         <h2>User Form</h2>
 
-        <!-- <p-panel> -->
+        <p-panel>
             <div>
                 <label for="firstname">First Name</label>
                 <input id="firstName" name="firstName" [(ngModel)]="contact.firstName" pInputText />
@@ -19,9 +19,11 @@
                 <label for="bio">Bio</label>
                 <textarea id="bio" name="bio" rows="5" cols="30" pInputTextarea [(ngModel)]="contact.bio"></textarea>
             </div>
-        <!-- </p-panel> -->
+            <div class="cta-container">
+                <p-button type="submit" [label]="isEdit ? 'Update' : 'Save'"></p-button>
+                <a routerLink="/"><p-button [outlined]="true" severity="danger" label="Cancel"></p-button></a>
+            </div>
+        </p-panel>
 
-        <p-button type="submit" [label]="isEdit ? 'Update' : 'Save'"></p-button>
-        <a routerLink="/"><p-button [outlined]="true" severity="danger" label="Cancel"></p-button></a>
     </form>
 </div>

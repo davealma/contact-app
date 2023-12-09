@@ -10,8 +10,16 @@ import { Router, RouterLink } from "@angular/router";
 @Component({
     selector: 'wt-contact-form',
     standalone: true,
-    imports: [PanelModule, InputTextModule, InputTextareaModule, ButtonModule , FormsModule, RouterLink],
-    templateUrl: './contact-form.component.html'
+    imports: [
+        PanelModule, 
+        InputTextModule, 
+        InputTextareaModule,
+        ButtonModule,
+        FormsModule,
+        RouterLink,
+    ],
+    templateUrl: './contact-form.component.html',
+    styleUrl: './contact-form.component.scss'
 })
 
 export class ContactFormComponent {
@@ -31,7 +39,6 @@ export class ContactFormComponent {
 
     submit() {
         if (this.isEdit) {
-            console.log('edit only');
             this.contactService.updateContact(this.contact).subscribe(() => this.router.navigate(['/']));
             return;   
         }
