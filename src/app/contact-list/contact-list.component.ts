@@ -46,7 +46,6 @@ export class ContactListComponent {
 
     ngOnInit(): void {
         this.isLoading = true;
-        // this.route.queryParamMap.pipe(map((params: ParamMap) => console.log('init',params.get('search'))))
         this.contactService.getContacts({size: this.size}).subscribe(this.subscribeContact)
     }
 
