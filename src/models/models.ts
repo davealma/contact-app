@@ -4,11 +4,11 @@ export type Contact = {
     lastName: string;
     image: string;
     bio: string;
-    telephone: string;
+    phone: string;
 }
 
 export type ContactFormData = Omit<Contact, 'id'>;
 
-export type ContactResponse = {
-    data: Contact[]
+export type ContactResponse<T> = {
+    data: T
 }

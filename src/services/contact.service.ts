@@ -9,8 +9,12 @@ import { Observable, map } from "rxjs";
 export class ContactService {
     constructor(private httpClient: HttpClient) {}
 
-    getContacts(): Observable<ContactResponse>  {
-        return this.httpClient.get<ContactResponse>('/api/contact');
+    getContacts(): Observable<ContactResponse<Contact[]>>  {
+        return this.httpClient.get<ContactResponse<Contact[]>>('/api/contact');
+    }
+
+    getContact(id: string): Observable<ContactResponse<Contact>> {
+        return this.httpClient.get<ContactResponse<Contact>>(`/api/contact/${id}`);
     }
 
     createContact(contact: ContactFormData): Observable<Contact> {
@@ -20,11 +24,6 @@ export class ContactService {
                 formData.append(property, contact[property as keyof ContactFormData]);
             }
         }
-        // formData.append('firstName', contact.firstName);
-        // formData.append('lastName', contact.lastName);
-        // if (contact.phone) {
-        //     formData.append('telephone', contact.phone);
-        // }
         return this.httpClient.post<Contact>('/api/contact', formData, {
             headers: { 'Accept': '*/*' }
         })
@@ -32,5 +31,9 @@ export class ContactService {
             console.log('contact created', contact);
             return contact
         }))
+    }
+
+    deleteContact(id: string): Observable<{}> {
+        return this.httpClient.delete(`/api/contact/${id}`);
     }
 }

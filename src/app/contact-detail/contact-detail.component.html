@@ -1,17 +1,24 @@
-<div class="contact-header-container">
-    <div class="image-container">
-        <img src="/assets/placeholder-image.png" alt="placeholder-image">
-    </div>
-    <div class="contact-information-container">
-        <div class="contact-information">
-            <h1>John Doe</h1>
-            <p>2222-3333</p>
+<div class="contact-header">
+    <div class="contact-header-container">
+        <div class="image-container">
+            <img src="/assets/placeholder-image.png" alt="placeholder-image">
         </div>
-        <div class="contact-cta">
-            <p-button label="Edit"></p-button>
-            <p-button label="Delete"></p-button>
+        <div class="contact-information-container">
+            <div class="contact-information">
+                <h1>{{contact.firstName}} {{contact.lastName}}</h1>
+                <p>{{contact.phone}}</p>
+            </div>
+            <div class="contact-cta">
+                <p-button label="Edit" ></p-button>
+                <p-button severity="danger" label="Delete" (onClick)="deleteContact()"></p-button>
+            </div>
         </div>
     </div>
 
     <p-divider></p-divider>
+
+    <div class="bio">
+        <h3>Bio</h3>
+        <p>{{contact.bio}}</p>
+    </div>
 </div>

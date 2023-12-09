@@ -16,7 +16,7 @@ import { Router } from "@angular/router";
 
 export class ContactFormComponent {
 
-    contact: ContactFormData = {firstName:'', lastName: '', image: '', bio: '', telephone: ''}
+    contact: ContactFormData = {firstName:'', lastName: '', image: '', bio: '', phone: ''}
 
     constructor(private contactService: ContactService, private router: Router) {}
 
