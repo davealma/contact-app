@@ -3,13 +3,13 @@ import { ButtonModule } from "primeng/button";
 import { DividerModule } from 'primeng/divider';
 import { ContactService } from "../../services/contact.service";
 import { Contact } from "../../models/models";
-import { Router } from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
 
 
 @Component({
     selector: 'wt-contact-detail',
     standalone: true,
-    imports: [ButtonModule , DividerModule],
+    imports: [ButtonModule , DividerModule, RouterLink],
     templateUrl: './contact-detail.component.html',
     styleUrl: './contact-detail.component.scss'
 })
@@ -22,9 +22,7 @@ export class ContactDetailComponent {
 
     @Input()
     set contactId(id: string) {
-        console.log('c', id);
         this.contactService.getContact(id).subscribe(response => this.contact = response.data);
-
     }
 
     deleteContact() {

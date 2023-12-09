@@ -28,9 +28,19 @@ export class ContactService {
             headers: { 'Accept': '*/*' }
         })
         .pipe(map((contact:Contact) => {
-            console.log('contact created', contact);
             return contact
         }))
+    }
+
+    updateContact(contact: Contact) {
+        const formData: FormData = new FormData();
+        for (const prop in contact) {
+            if (Object.prototype.hasOwnProperty.call(contact, prop)) {
+                const element = contact[prop as keyof Contact];
+                formData.append(prop, contact[prop as keyof Contact]);
+            }
+        }
+        return this.httpClient.put(`/api/contact/${contact.id}`, formData);
     }
 
     deleteContact(id: string): Observable<{}> {

@@ -1,5 +1,5 @@
 <div>
-    <form (ngSubmit)="create()">
+    <form (ngSubmit)="submit()">
         <h2>User Form</h2>
 
         <!-- <p-panel> -->
@@ -21,6 +21,7 @@
             </div>
         <!-- </p-panel> -->
 
-        <p-button type="submit" label="Save"></p-button>
+        <p-button type="submit" [label]="isEdit ? 'Update' : 'Save'"></p-button>
+        <a routerLink="/"><p-button [outlined]="true" severity="danger" label="Cancel"></p-button></a>
     </form>
 </div>
