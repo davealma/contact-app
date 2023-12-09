@@ -3,6 +3,7 @@
         <wt-contact-box *ngFor="let contact of contacts" [contact]="contact"></wt-contact-box>
     </div>
     <div class="contact-list-load">
-        <p-button label="Load More"></p-button>
+        <p-button *ngIf="!isLoading" [disabled]="isLoading" label="Load More" (onClick)="loadMore()"></p-button>
+        <p-progressSpinner *ngIf="isLoading"></p-progressSpinner>
     </div>
 </div>
