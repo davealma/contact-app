@@ -1,12 +1,12 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { ContactBox } from "../contact-box/contact-box.component";
 import { ButtonModule } from "primeng/button";
 import { ContactService } from "../../services/contact.service";
 import { Contact, ContactResponse } from "../../models/models";
 import { CommonModule } from "@angular/common";
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
-import { ActivatedRoute, NavigationEnd, NavigationStart, ParamMap, Router } from "@angular/router";
-import { filter, map } from "rxjs";
+import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
+import { filter } from "rxjs";
 
 @Component({
     selector: 'wt-contact-list',
@@ -27,8 +27,8 @@ export class ContactListComponent {
             filter((event) => event instanceof NavigationEnd)
         ).subscribe((event) => {
             const searchParams = new URLSearchParams(window.location.search);
-            
             const search = searchParams.get('search')
+
             if (search) {
                 this.contactService.getContacts({search})
                     .subscribe(this.subscribeContact);
