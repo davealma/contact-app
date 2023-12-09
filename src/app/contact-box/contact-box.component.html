@@ -1,8 +1,10 @@
-<div class="contact-box">
-    <div class="image-container">
-        <img src="/assets/placeholder-image.png" alt="placeholder-image">
+<a [routerLink]="['contact', contact.id]">
+    <div class="contact-box">
+        <div class="image-container">
+            <img src="/assets/placeholder-image.png" alt="placeholder-image">
+        </div>
+        <div class="image-name">
+            <h4>{{contact.firstName}} {{contact.lastName}}</h4>
+        </div>
     </div>
-    <div class="image-name">
-        <h4>{{contact.firstName}} {{contact.lastName}}</h4>
-    </div>
-</div>
+</a>
