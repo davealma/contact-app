@@ -1,6 +1,8 @@
 <div class="search-bar">
-    <span class="p-input-icon-left">
-        <i class="pi pi-search"></i>
-        <input type="text" pInputText placeholder="Search for User"/>
-    </span>
+    <form (ngSubmit)="submit()" >
+        <span class="p-input-icon-left">
+            <i class="pi pi-search"></i>
+            <input name="search" [(ngModel)]="search" type="text" pInputText placeholder="Search for User"/>
+        </span>
+    </form>
 </div>

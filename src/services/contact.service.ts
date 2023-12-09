@@ -9,8 +9,17 @@ import { Observable, map } from "rxjs";
 export class ContactService {
     constructor(private httpClient: HttpClient) {}
 
-    getContacts(size: Number): Observable<ContactResponse<Contact[]>>  {
-        return this.httpClient.get<ContactResponse<Contact[]>>(`/api/contact?size=${size}`);
+    getContacts({size, search}:{size?: Number, search?: string}): Observable<ContactResponse<Contact[]>>  {
+        const objParam = {};
+        if (size) {
+            Object.assign(objParam, {size});
+        }
+        if (search) {
+            Object.assign(objParam, {search});
+        }
+        const queryParams = new URLSearchParams(objParam);
+        const url = queryParams.toString() ? `/api/contact?${queryParams.toString()}` : '/api/contact';
+        return this.httpClient.get<ContactResponse<Contact[]>>(url);
     }
 
     getContact(id: string): Observable<ContactResponse<Contact>> {
