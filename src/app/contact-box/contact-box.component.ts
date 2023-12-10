@@ -10,6 +10,6 @@ import { RouterLink } from "@angular/router";
     styleUrl:'./contact-box.component.scss'
 })
 
-export class ContactBox {
+export class ContactBoxComponent {
     @Input() contact:Contact = {} as Contact;
 }

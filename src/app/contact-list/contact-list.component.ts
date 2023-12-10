@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { ContactBox } from "../contact-box/contact-box.component";
+import { ContactBoxComponent } from "../contact-box/contact-box.component";
 import { ButtonModule } from "primeng/button";
 import { ContactService } from "../../services/contact.service";
 import { Contact, ContactResponse } from "../../models/models";
@@ -11,7 +11,7 @@ import { filter } from "rxjs";
 @Component({
     selector: 'wt-contact-list',
     standalone: true,
-    imports:[ContactBox, ButtonModule, CommonModule, ProgressSpinnerModule],
+    imports:[ContactBoxComponent, ButtonModule, CommonModule, ProgressSpinnerModule],
     templateUrl: './contact-list.component.html',
     styleUrl: './contact-list.component.scss'
 })
