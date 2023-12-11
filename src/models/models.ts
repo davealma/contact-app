@@ -7,7 +7,7 @@ export type Contact = {
     phone: string;
 }
 
-export type ContactFormData = Omit<Contact, 'id'>;
+export type ContactFormData = Omit<Contact, 'id, image'>;
 
 export type ContactResponse<T> = {
     data: T

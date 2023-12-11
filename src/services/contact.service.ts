@@ -34,12 +34,15 @@ export class ContactService {
             );
     }
 
-    createContact(contact: ContactFormData): Observable<Contact> {
+    createContact(contact: ContactFormData, imageFile?: File): Observable<Contact> {
         const formData:FormData = new FormData();
         for (const property in contact) {
             if (contact[property as keyof ContactFormData]) {
                 formData.append(property, contact[property as keyof ContactFormData]);
             }
+        }
+        if (imageFile) {
+            formData.append('image', imageFile);
         }
         return this.httpClient.post<Contact>('/api/contact', formData, {
             headers: { 'Accept': '*/*' }
@@ -47,6 +50,9 @@ export class ContactService {
         .pipe(map((contact:Contact) => {
             return contact
         }))
+        .pipe(
+            catchError(this.handleError)
+        )
     }
 
     updateContact(contact: Contact) {

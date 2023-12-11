@@ -2,6 +2,7 @@
     <form (ngSubmit)="submit()">
         <h2>User Form</h2>
 
+        <p-message *ngIf="errorMessage" severity="error" [text]="errorMessage"></p-message>    
         <p-panel>
             <div>
                 <label for="firstname">First Name</label>
@@ -14,6 +15,10 @@
             <div>
                 <label for="phone">Phone</label>
                 <input id="phone" name="phone" [(ngModel)]="contact.phone" pInputText />
+            </div>
+            <div>
+                <label for="image">Image</label>
+                <p-fileUpload mode="basic" [multiple]="false" (onSelect)="onUpload($event)" chooseLabel="Choose" name="image" accept="image/*"></p-fileUpload>
             </div>
             <div>
                 <label for="bio">Bio</label>
