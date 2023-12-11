@@ -1,7 +1,9 @@
 <div class="contact-header">
+    <p-message *ngIf="errorMessage" severity="error" [text]="errorMessage"></p-message>    
     <div class="contact-header-container">
         <div class="image-container">
-            <img src="/assets/placeholder-image.png" alt="placeholder-image">
+            <img *ngIf="contact.image" [ngSrc]="contact.image" alt="placeholder-image" width="300" height="300" priority="">
+            <img *ngIf="!contact.image" src="/assets/placeholder-image.png" alt="placeholder-image">
         </div>
         <div class="contact-information-container">
             <div class="contact-information">

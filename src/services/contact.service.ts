@@ -1,13 +1,18 @@
 import { Injectable } from "@angular/core";
 import { Contact, ContactFormData, ContactResponse } from "../models/models";
-import { HttpClient } from "@angular/common/http";
-import { Observable, map } from "rxjs";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { Observable, catchError, map, throwError } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
 })
 export class ContactService {
     constructor(private httpClient: HttpClient) {}
+
+    private handleError(error: HttpErrorResponse) {
+        console.log(error)
+        return throwError(() => new Error(error.error));
+    }
 
     getContacts({size, search}:{size?: Number, search?: string}): Observable<ContactResponse<Contact[]>>  {
         const objParam = {};
@@ -23,7 +28,10 @@ export class ContactService {
     }
 
     getContact(id: string): Observable<ContactResponse<Contact>> {
-        return this.httpClient.get<ContactResponse<Contact>>(`/api/contact/${id}`);
+        return this.httpClient.get<ContactResponse<Contact>>(`/api/contact/${id}`)
+            .pipe(
+                catchError(this.handleError)
+            );
     }
 
     createContact(contact: ContactFormData): Observable<Contact> {
