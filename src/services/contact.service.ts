@@ -55,7 +55,7 @@ export class ContactService {
         )
     }
 
-    updateContact(contact: Contact) {
+    updateContact(contact: ContactFormData, imageFile?: File) {
         const formData: FormData = new FormData();
         for (const prop in contact) {
             if (Object.prototype.hasOwnProperty.call(contact, prop)) {
@@ -63,6 +63,10 @@ export class ContactService {
                 formData.append(prop, contact[prop as keyof Contact]);
             }
         }
+        if (imageFile) {
+            formData.append('image', imageFile)    
+        }
+
         return this.httpClient.put(`/api/contact/${contact.id}`, formData);
     }
 

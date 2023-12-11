@@ -50,13 +50,12 @@ export class ContactFormComponent {
     }
 
     onUpload(event: UploadEvent) {
-        console.log('ev',event)
         this.imageFile = event.files[0];
     }
 
     submit() {
         if (this.isEdit) {
-            this.contactService.updateContact(this.contact).subscribe(() => this.router.navigate(['/']));
+            this.contactService.updateContact(this.contact, this.imageFile).subscribe(() => this.router.navigate(['/']));
             return;   
         }
         this.contactService.createContact(this.contact, this.imageFile)
