@@ -1,7 +1,9 @@
 <a data-testid="contact-box" [routerLink]="['contact', contact.id]">
     <div  class="contact-box">
         <div class="image-container">
-            <img src="/assets/placeholder-image.png" alt="placeholder-image">
+            <img *ngIf="contact.image" [ngSrc]="contact.image" width="200" height="200" alt="contact image" priority="">
+            <img *ngIf="!contact.image" src="/assets/placeholder-image.png" alt="placeholder-image">
+
         </div>
         <div class="image-name">
             <h4>{{contact.firstName}} {{contact.lastName}}</h4>
